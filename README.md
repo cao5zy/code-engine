@@ -30,3 +30,29 @@ Please follow the comments on vars section. Follow the link here if you are inte
         protocol: \"http\" # if the value is string, the \" should wrap the value
         
 Generally, methods are defined at methods and configurations are set at configs. You can specify any configuration here however the "port" is a must.
+
+### What you should do?
+When the files are generated, the structure looks like following.   
+
+    code
+      |- app.js
+      |- config
+          |- default.json
+          |- log4js.json
+      |- config.js
+      |- implemenation.js
+      |- package.json
+      |- service.js
+
+You should write your own code in implementation.js  
+
+    (function(factory){
+        module.exports = factory(require('log4js').getLogger('implementation'));
+    }(function(logger){
+        function implementation(){};
+
+        implementation.prototype = {
+	        //your code here please!
+        };
+        return new implementation();
+    }));

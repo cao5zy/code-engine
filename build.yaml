@@ -7,14 +7,12 @@
     template_folder: "./app_template"
     deploy_folder: "./output"
     app_name: "seneca_service"
-    methods:
-    - { name: "add" , role: "app"}
-    configs:
+    methods: # a list of dict object, with key, name and role
+    - { name: "add" , role: "app"} 
+    configs: # a dict object to set the config
       port: 8080
-      protocol: "\"http\""
+      protocol: \"http\" # if the value is string, the \" should wrap the value
       
-#    - { name: "port", value: 8080 }
-#    - { name: "protocol", value: "\"http\"" }
 
     
   tasks:

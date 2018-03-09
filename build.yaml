@@ -1,0 +1,67 @@
+---
+
+- name: build service code
+  hosts: localhost
+
+  vars:
+    template_folder: "./app_template"
+    deploy_folder: "./output"
+    app_name: "seneca_service"
+    methods:
+    - { name: "add" , role: "app"}
+    configs:
+      port: 8080
+      protocol: "\"http\""
+      
+#    - { name: "port", value: 8080 }
+#    - { name: "protocol", value: "\"http\"" }
+
+    
+  tasks:
+  - name: make deploy folder
+    file:
+      path: "{{deploy_folder}}"
+      state: directory
+
+  - name: make deploy/config folder
+    file:
+      path: "{{deploy_folder}}/config"
+      state: directory
+      
+  - name: build app.js
+    template:
+      src: "{{template_folder}}/app.js"
+      dest: "{{deploy_folder}}/app.js"
+
+  - name: build config.js
+    template:
+      src: "{{template_folder}}/config.js"
+      dest: "{{deploy_folder}}/config.js"
+
+  - name: build implementation.js
+    template:
+      src: "{{template_folder}}/implementation.js"
+      dest: "{{deploy_folder}}/implementation.js"
+
+  - name: build package.json
+    template:
+      src: "{{template_folder}}/package.json"
+      dest: "{{deploy_folder}}/package.json"
+
+
+  - name: build service.js
+    template:
+      src: "{{template_folder}}/service.js"
+      dest: "{{deploy_folder}}/service.js"
+
+  - name: build config/default.json
+    template:
+      src: "{{template_folder}}/config/default.json"
+      dest: "{{deploy_folder}}/config/default.json"
+
+  - name: build config/log4js.json
+    template:
+      src: "{{template_folder}}/config/log4js.json"
+      dest: "{{deploy_folder}}/config/log4js.json"
+
+...

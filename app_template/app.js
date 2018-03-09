@@ -4,7 +4,7 @@
 			     require('./service'),
 			     require('./config')
 			    );
-}(function(seneca, logger, service){
+}(function(seneca, logger, service, config){
     seneca.use(service);
     seneca.listen(config.port);
 }));

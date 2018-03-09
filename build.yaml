@@ -5,8 +5,8 @@
 
   vars:
     template_folder: "./app_template"
-    deploy_folder: "./output"
-    app_name: "seneca_service"
+    deploy_folder: "./output" # the folder that will store the generated files for service. You can specify a absolute path or a relative to current folder
+    app_name: "seneca_service" # the name of service
     methods: # a list of dict object, with key, name and role
     - { name: "add" , role: "app"} 
     configs: # a dict object to set the config

@@ -1,6 +1,6 @@
 (function(factory){
     module.exports = factory(require('seneca')(),
-			     require('logger').getLogger('app'),
+			     require('log4js').getLogger('app'),
 			     require('./service'),
 			     require('./config')
 			    );

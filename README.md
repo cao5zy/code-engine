@@ -1,37 +1,47 @@
 # seneca_server_template
 ## A template project to build microservice with seneca framework
 
-### Guideline
-The ansible should be installed in your local environment.  
-The values should be modified in the build.yaml when it is used to your real project.
+### What does it do for you
+This template project will help you create your microservice project that based on seneca framework quickly.
 
-### Install Ansible
-Please refer to [Ansible Github](https://github.com/ansible/ansible) for details. Generally, if you work on Ubuntu, you can install ansible as follow command.  
+### Prerequisite
+[Ansible](https://github.com/ansible/ansible) should be installed in your local environment.  
+For ubuntu user, run following command to install  
+
     sudo apt-get install ansible
 
-### Clone the code
+### Try it
+#### Clone the code  
 
     mkdir code
     git clone https://github.com/cao5zy/seneca_server_template.git
     cd code
-    ansible-playbook build.yaml # run it after you finish your service definition.
     
-### Service definition
-Please follow the comments on vars section. Follow the link here if you are interested in [YAML](http://www.yaml.org/)
+#### Input methods and configurations of your service   
+Please open build.yaml file, then input methods and configurations.  
 
     vars:
       template_folder: "./app_template"
       deploy_folder: "./output" # the folder that will store the generated files for service. You can specify a absolute path or a relative to current folder
       app_name: "seneca_service" # the name of service
       methods: # a list of dict object, with key, name and role
-      - { name: "add" , role: "app"} 
+      - { role: "app", name: "add"} 
       configs: # a dict object to set the config
         port: 8080
         protocol: \"http\" # if the value is string, the \" should wrap the value
-        
-Generally, methods are defined at methods and configurations are set at configs. You can specify any configuration here however the "port" is a must.
+In "methods" section, you input your methods of your service interface in json object form.  
+"role" can be regarded as namespace of your methods. It is useful when you try to place your service behind the proxy.  
+"name" is the name of your method.  
+Items in "methods" are list in YAML syntax. So don't forget "-" before your method item.  
+In "configs" section, you input the configurations for your service.  
+"port" is a must. It defines the port number for your service.
+If the value is string type, you must wrap it with \".
+Items in "config" are dictionary in YAML syntax. So don't forget 2 spaces indent before the item.
 
-### What you should do?
+That's all you currently have to do with the yaml file. For more information about yaml, please follow the [link](http://www.yaml.org/)
+
+
+#### How to work with the generated code
 When the files are generated, the structure looks like following.   
 
     code
@@ -56,3 +66,5 @@ You should write your own code in implementation.js
         };
         return new implementation();
     }));
+
+

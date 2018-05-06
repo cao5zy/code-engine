@@ -15,11 +15,11 @@ For ubuntu user, run following command to install
 
     mkdir project_folder
     cd project_folder
-    wget https://github.com/cao5zy/seneca_server_template/zipball/master && unzip master -d .seneca_server_template && rm master 
+    wget wget https://github.com/cao5zy/seneca_server_template/archive/1.0.0.zip && unzip 1.0.0.zip && mv seneca_server_template-1.0.0 .seneca_server_template && rm 1.0.0.zip 
     
     
 #### Input methods and configurations of your service   
-Go to .seneca_server_template. Please open build.yaml file, then input methods and configurations.  
+Go to `.seneca_server_template`. Please open build.yaml file, then input methods and configurations.  
 
     vars:
       template_folder: "./app_template"

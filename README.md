@@ -11,14 +11,15 @@ For ubuntu user, run following command to install
     sudo apt-get install ansible
 
 ### Try it
-#### Clone the code  
+#### download the code  
 
-    mkdir code
-    git clone https://github.com/cao5zy/seneca_server_template.git
-    cd code
+    mkdir project_folder
+    cd project_folder
+    wget https://github.com/cao5zy/seneca_server_template/zipball/master && unzip master -d .seneca_server_template && rm master 
+    
     
 #### Input methods and configurations of your service   
-Please open build.yaml file, then input methods and configurations.  
+Go to .seneca_server_template. Please open build.yaml file, then input methods and configurations.  
 
     vars:
       template_folder: "./app_template"

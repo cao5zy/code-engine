@@ -1,5 +1,5 @@
 {
-    {% for key, value in configs.iteritems() %}"{{key}}":{{value}}{% if not loop.last %},{% endif %}
+    {% for key in default_configs %}{{key}}: "{% raw %}{{{% endraw %}{{app_name}}_{{key}}{% raw %}}}{% endraw %}"
     {% endfor %}
     
 }

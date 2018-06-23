@@ -1,0 +1,2 @@
+{% for key in default_configs %}{{app_name}}_{{key}}:
+{% endfor %}

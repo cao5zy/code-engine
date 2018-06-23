@@ -5,61 +5,77 @@
 
   vars:
     template_folder: "./app_template"
-    deploy_folder: "./output" # the folder that will store the generated files for service. You can specify a absolute path or a relative to current folder
+    output_folder: "./output" # the folder that will store the generated files for service. You can specify a absolute path or a relative to current folder
     app_name: "seneca_service" # the name of service
     methods: # a list of dict object, with key, name and role
     - { name: "add" , role: "app"} 
-    configs: # a dict object to set the config
-      port: 8080
-      protocol: \"http\" # if the value is string, the \" should wrap the value
-      
-
+    default_configs: 
+    - port
     
   tasks:
-  - name: make deploy folder
+  - name: make ouput folder
     file:
-      path: "{{deploy_folder}}"
+      path: "{{output_folder}}"
       state: directory
 
-  - name: make deploy/config folder
+  - name: make output/config folder
     file:
-      path: "{{deploy_folder}}/config"
+      path: "{{output_folder}}/config"
       state: directory
       
   - name: build app.js
     template:
       src: "{{template_folder}}/app.js"
-      dest: "{{deploy_folder}}/app.js"
+      dest: "{{output_folder}}/app.js"
 
   - name: build config.js
     template:
       src: "{{template_folder}}/config.js"
-      dest: "{{deploy_folder}}/config.js"
+      dest: "{{output_folder}}/config.js"
 
   - name: build implementation.js
     template:
       src: "{{template_folder}}/implementation.js"
-      dest: "{{deploy_folder}}/implementation.js"
+      dest: "{{output_folder}}/implementation.js"
 
   - name: build package.json
     template:
       src: "{{template_folder}}/package.json"
-      dest: "{{deploy_folder}}/package.json"
+      dest: "{{output_folder}}/package.json"
 
 
   - name: build service.js
     template:
       src: "{{template_folder}}/service.js"
-      dest: "{{deploy_folder}}/service.js"
+      dest: "{{output_folder}}/service.js"
 
   - name: build config/default.json
     template:
       src: "{{template_folder}}/config/default.json"
-      dest: "{{deploy_folder}}/config/default.json"
+      dest: "{{output_folder}}/config/default.json"
 
   - name: build config/log4js.json
     template:
       src: "{{template_folder}}/config/log4js.json"
-      dest: "{{deploy_folder}}/config/log4js.json"
+      dest: "{{output_folder}}/config/log4js.json"
 
+  - name: build the templates folder
+    file:
+      path: "{{output_folder}}/deploy/roles/main/templates"
+      state: directory
+
+  - name: build the defaults folder
+    file:
+      path: "{{output_folder}}/deploy/roles/main/defaults"
+      state: directory
+      
+  - name: create the default template file
+    template:
+      src: "{{template_folder}}/config/default.json"
+      dest: "{{output_folder}}/deploy/roles/main/templates/default.json.template"
+
+  - name: create the default main file
+    template:
+      src: "{{template_folder}}/config/list.template"
+      dest: "{{output_folder}}/deploy/roles/main/defaults/main.yml"
 ...

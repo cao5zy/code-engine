@@ -15,7 +15,7 @@ For ubuntu user, run following command to install
 
     mkdir project_folder
     cd project_folder
-    wget wget https://github.com/cao5zy/seneca_server_template/archive/1.0.0.zip && unzip 1.0.0.zip && mv seneca_server_template-1.0.0 .seneca_server_template && rm 1.0.0.zip 
+    wget https://github.com/cao5zy/seneca_server_template/archive/1.0.0.zip && unzip 1.0.0.zip && mv seneca_server_template-1.0.0 .seneca_server_template && rm 1.0.0.zip 
     
     
 #### Input methods and configurations of your service   

@@ -15,7 +15,7 @@ For ubuntu user, run following command to install
 
     mkdir project_folder
     cd project_folder
-    wget https://github.com/cao5zy/seneca_server_template/archive/1.0.0.zip && unzip 1.0.0.zip && mv seneca_server_template-1.0.0 .seneca_server_template && rm 1.0.0.zip 
+    wget https://github.com/cao5zy/seneca_server_template/archive/v1.0.2.zip && unzip v1.0.2.zip && mv seneca_server_template-1.0.2 .seneca_server_template && rm v1.0.2.zip 
     
     
 #### Input methods and configurations of your service   
@@ -27,9 +27,9 @@ Go to `.seneca_server_template`. Please open build.yaml file, then input methods
       app_name: "seneca_service" # the name of service
       methods: # a list of dict object, with key, name and role
       - { role: "app", name: "add"} 
-      configs: # a dict object to set the config
-        port: 8080
-        protocol: \"http\" # if the value is string, the \" should wrap the value
+      default_configs: # a list which will be stored in defaults/main.yml
+      - port
+        
 In "methods" section, you input your methods of your service interface in json object form.  
 "role" can be regarded as namespace of your methods. It is useful when you try to place your service behind the proxy.  
 "name" is the name of your method.  
@@ -51,6 +51,12 @@ When the files are generated, the structure looks like following.
           |- default.json
           |- log4js.json
       |- config.js
+      |- deploy
+          |- roles
+	      |- templates
+	          |- default.json.template
+	      |- defaults
+	          |- main.yml
       |- implemenation.js
       |- package.json
       |- service.js

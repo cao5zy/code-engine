@@ -15,7 +15,7 @@ For ubuntu user, run following command to install
 
     mkdir project_folder
     cd project_folder
-    wget https://github.com/cao5zy/seneca_server_template/archive/v1.0.2.zip && unzip v1.0.2.zip && mv seneca_server_template-1.0.2 .seneca_server_template && rm v1.0.2.zip 
+    wget https://github.com/cao5zy/seneca_server_template/archive/1.0.3.zip && unzip 1.0.3.zip && mv seneca_server_template-1.0.3 .seneca_server_template && rm 1.0.3.zip 
     
     
 #### Input methods and configurations of your service   
@@ -26,7 +26,7 @@ Go to `.seneca_server_template`. Please open build.yaml file, then input methods
       deploy_folder: "./output" # the folder that will store the generated files for service. You can specify a absolute path or a relative to current folder
       app_name: "seneca_service" # the name of service
       methods: # a list of dict object, with key, name and role
-      - { role: "app", name: "add"} 
+      - { name: "add"} 
       default_configs: # a list which will be stored in defaults/main.yml
       - port
         
@@ -69,7 +69,7 @@ You should write your own code in implementation.js
         function implementation(){};
 
         implementation.prototype = {
-	        //your code here please!
+	    add: function(param, callback) {}    //your code here please!
         };
         return new implementation();
     }));

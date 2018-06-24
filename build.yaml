@@ -8,7 +8,7 @@
     output_folder: "./output" # the folder that will store the generated files for service. You can specify a absolute path or a relative to current folder
     app_name: "seneca_service" # the name of service
     methods: # a list of dict object, with key, name and role
-    - { name: "add" , role: "app"} 
+    - { name: "add"} 
     default_configs: 
     - port
     
@@ -35,7 +35,7 @@
 
   - name: build implementation.js
     template:
-      src: "{{template_folder}}/implementation.js"
+      src: "{{template_folder}}/implementation.js.template"
       dest: "{{output_folder}}/implementation.js"
 
   - name: build package.json

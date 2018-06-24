@@ -4,6 +4,8 @@
     function implementation(){};
 
     implementation.prototype = {
+        {% for method in methods %}{{ method.name }}: function (param, callback){}{% if not loop.last %},{% endif %}
+	{% endfor %}
 	//your code here please!
     };
     return new implementation();

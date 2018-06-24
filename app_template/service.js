@@ -6,8 +6,8 @@
 }
  (function(logger, config, impl){
      return function(options){
-	 {% for method in methods %}this.add({"role":"{{method.role}}", "name":"{{method.name}}"}, function(args, response){
-	     impl.{{method.name}}(args, response);
+	 {% for method in methods %}this.add({"action": "{{method.name}}"}, function(msg, respond){
+	     impl.{{method.name}}(msg.param, (data)=>respond(data, null));
 	 });
 	 {% endfor %}
 

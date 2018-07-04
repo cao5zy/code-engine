@@ -1,8 +1,16 @@
+from nose import with_setup
 from assertpy import assert_that
 import os
 from code_engine_file import collect_files
 root = "./.test"
 
+def setup_test_collect_file():
+    pass
+
+def clear():
+    pass
+
+@with_setup(setup_test_collect_file, clear)
 def test_collect_file():
     complete_path = os.path.abspath(root)
     assert_that(collect_files(root, "ce")) \

@@ -1,10 +1,20 @@
+import os
+import shutil
 
+def compose_dir(parent, name):
+    return os.path.join(parent or os.getcwd(), name)
 
-def remove():
-    pass
+def remove(dir):
+    shutil.rmtree(dir)
 
-def create_folder(name, parent = None):
-    pass
+def put_folder(name, parent = None):
+    def create(dir):
+        os.makedirs(dir)
+        return dir
+    return create(compose_dir(parent, name)) \
+        if not os.path.exists(compose_dir(parent, name)) \
+                       else compose_dir(parent, name)
 
-def create_file(name, parent = None, content = None):
-    pass
+def put_file(name, parent = None, content = None):
+    with open(compose_dir(parent, name), 'w') as file:
+                       file.write(content)

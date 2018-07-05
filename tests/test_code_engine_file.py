@@ -2,10 +2,14 @@ from nose import with_setup
 from assertpy import assert_that
 import os
 from code_engine_file import collect_files
+from util.env import put_folder, put_file
 root = "./.test"
 
 def setup_test_collect_file():
-    pass
+    put_file("file2.ce", put_folder("folder1", put_folder(root)), "")
+    put_file("file2.xs", put_folder("folder2", put_folder(root)), "")
+    put_file("file1.ce", put_folder(root), "")
+    put_file("file2.xd", put_folder(root), "")
 
 def clear():
     pass

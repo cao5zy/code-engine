@@ -1,14 +1,14 @@
 from nose import with_setup
 from assertpy import assert_that
 import os
-from code_engine_file import get_subscribe_name
+from code_engine_file import get_value
 from util.env import put_folder, put_file, remove
 from util.debug import on
 
 
 root = "./.test"
 
-def setup_test_collect_file():
+def setup_test_get_value():
     put_file("file2.ce", put_folder(root), '''
 {
   "subscribe_name": "abc"
@@ -19,10 +19,10 @@ def setup_test_collect_file():
 def clear():
     remove(root)
 
-@with_setup(setup_test_collect_file, clear)
-def test_get_subscribe_name():
-    assert_that(get_subscribe_name(os.path.join(root, "file2.ce"))) \
-        .contains_entry({"subscribe_name": "abc"})
+@with_setup(setup_test_get_value, clear)
+def test_get_value():
+    assert_that(get_value(os.path.join(root, "file2.ce"), "subscribe_name")) \
+        .is_equal_to("abc")
 
 
 def setup_test_push_values():

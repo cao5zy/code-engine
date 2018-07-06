@@ -2,8 +2,8 @@ import os
 from util.debug import debug
 import demjson
 
-def get_subscribe_name(filepath):
-    return (lambda json: {"subscribe_name": json["subscribe_name"]}) \
+def get_value(filepath, key):
+    return (lambda json: json[key]) \
         (demjson.decode_file(filepath))
 
 def push_values(filepath, data):

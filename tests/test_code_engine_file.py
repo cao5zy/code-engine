@@ -41,8 +41,7 @@ def test_push_values():
         "name": "test",
         "value": 123
     }
-    push_values(os.path.join(root, "test_push.ce"), data)
-
-    assert_that(demjson.decode_file(os.path.join(root, "test_push.ce.staging"))["variables"]).is_equal_to(data)
+    
+    assert_that(demjson.decode_file(push_values(os.path.join(root, "test_push.ce"), data))["variables"]).is_equal_to(data)
     
 

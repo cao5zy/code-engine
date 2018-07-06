@@ -10,5 +10,10 @@ def push_values(filepath, data):
     def updatedict(original, data):
         original.update(data)
         return original
-    
-    demjson.encode_to_file(filepath + ".staging", debug(updatedict(demjson.decode_file(filepath), {"variables": data})))
+
+    def push(outputpath):
+        demjson.encode_to_file(outputpath, debug(updatedict(demjson.decode_file(filepath), {"variables": data})))
+
+        return outputpath
+
+    return push(filepath + ".staging")

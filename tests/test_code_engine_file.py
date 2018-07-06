@@ -3,6 +3,9 @@ from assertpy import assert_that
 import os
 from code_engine_file import collect_files
 from util.env import put_folder, put_file
+from util.debug import on
+
+
 root = "./.test"
 
 def setup_test_collect_file():

@@ -23,5 +23,26 @@ def clear():
 def test_get_subscribe_name():
     assert_that(get_subscribe_name(os.path.join(root, "file2.ce"))) \
         .contains_entry({"subscribe_name": "abc"})
+
+
+def setup_test_push_values():
+    put_file("test_push.ce", put_folder(root), '''
+{
+    "subscribe_name": "xyc"
+}
+''')
+
+@with_setup(setup_test_push_values, clear)
+def test_push_values():
+    from code_engine_file import push_values
+    import demjson
+    
+    data = {
+        "name": "test",
+        "value": 123
+    }
+    push_values(os.path.join(root, "test_push.ce"), data)
+
+    assert_that(demjson.decode_file(os.path.join(root, "test_push.ce.staging"))["variables"]).is_equal_to(data)
     
 

@@ -1,5 +1,31 @@
-# seneca_server_template
-## A template project to build microservice with seneca framework
+# code-engine
+Code-engine is a dead simple engine based on Jinja2 to make you free from generation process.
+
+It looks like a pipe. You push your data into the end of the pipe. Finally, the files will be generated at the other end.  
+So you need to prepare the template definition files and the data.  
+
+## Template definition files  
+Template definition files include `definition` and `template`.  
+
+### definition
+```
+    {
+      "subscribe_name": "methods",
+      "template_path": "./.template/service.template",
+      "output_path": "./code/service.js"
+    }
+```
+
+### template
+```
+function service(){}
+
+service.prototype = {
+  {% for method in method_names %}{{method}}: function(){}{%if not loop.last %},{% endif %}
+  {% endfor %}
+}
+```  
+
 
 ### What does it do for you
 This template project will help you create your microservice project that based on seneca framework quickly.

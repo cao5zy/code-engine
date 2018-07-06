@@ -1,5 +1,5 @@
 # code-engine
-Code-engine is a dead simple engine based on Jinja2 to make you free from generation process.
+Code-engine is a dead simple engine based on [Jinja2](http://jinja.pocoo.org/) to make you free from generation process.
 
 It looks like a pipe. You push your data into the end of the pipe. Finally, the files will be generated at the other end.  
 So you need to prepare the template definition files and the data.  
@@ -15,6 +15,8 @@ Template definition files include `definition` and `template`.
       "output_path": "./code/service.js"
     }
 ```
+In this section, it tells the code-engine where get the template and where to output the file.  
+The `subscribe_name` is used to subscribe the data when the data is pushed into the pipe.  
 
 ### template
 ```
@@ -25,6 +27,8 @@ service.prototype = {
   {% endfor %}
 }
 ```  
+In this section, it tells the code-engine how to generate the file with the subscribed data.  
+Please go to [Jinja2](http://jinja.pocoo.org/) for documentation of the template syntax.  
 
 
 ### What does it do for you

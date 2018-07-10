@@ -2,7 +2,7 @@
 Code-engine is a dead simple engine based on [Jinja2](http://jinja.pocoo.org/) to make you free from generation process.
 
 It looks like a pipe. You push your data into the end of the pipe. Finally, the files will be generated at the other end.  
-So you need to prepare the template definition files and the data.  
+![diagram](/resources/code-engine-diagram.png)  
 
 ## Template definition files  
 Template definition files include `definition` and `template`.  

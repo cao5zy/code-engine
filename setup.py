@@ -5,7 +5,7 @@ requires = ['demjson'],
 
 setup(
     name = 'code_engine',
-    version = '1.2.1',
+    version = '1.0.0',
     author = 'Zongying Cao',
     author_email = 'zongying.cao@dxc.com',
     description = 'code engine',

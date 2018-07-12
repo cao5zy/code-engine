@@ -61,3 +61,5 @@ output
 .python-version
 .python
 *__pycache__*
+dist
+code_engine.egg-info

@@ -11,7 +11,7 @@ setup(
     description = 'code engine',
     long_description = 'code engine',
     url = 'https://github.com/cao5zy/code-engine',
-    packages = packages,
+    packages = ['code_engine'],
     install_requires = requires,
     license = 'Apache',
     classifiers = [

@@ -60,3 +60,4 @@ typings/
 output
 .python-version
 .python
+*__pycache__*

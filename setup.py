@@ -1,18 +1,19 @@
 #!/usr/bin/env python
-from setuptools import setup
+from setuptools import setup, find_packages
 name = "code_engine"
 
 requires = ['demjson'],
 
 setup(
     name = name,
-    version = '1.0.0',
+    version = '1.0.4',
     author = 'Zongying Cao',
     author_email = 'zongying.cao@dxc.com',
-    description = 'code engine',
-    long_description = 'code engine',
+    description = 'Code-engine is a dead simple engine based on Jinja2 to make you free from generation process.',
+    long_description = """Code-engine is a dead simple engine based on Jinja2 to make you free from generation process.
+    It looks like a pipe. You push your data into the end of the pipe. Finally, the files will be generated at the other end.""",
     url = 'https://github.com/cao5zy/code-engine',
-    packages = [name],
+    packages = [name, "code_engine.util"],
     install_requires = requires,
     license = 'Apache',
     classifiers = [

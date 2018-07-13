@@ -1,17 +1,18 @@
 #!/usr/bin/env python
 from setuptools import setup
+name = "code_engine"
 
 requires = ['demjson'],
 
 setup(
-    name = 'code_engine',
+    name = name,
     version = '1.0.0',
     author = 'Zongying Cao',
     author_email = 'zongying.cao@dxc.com',
     description = 'code engine',
     long_description = 'code engine',
     url = 'https://github.com/cao5zy/code-engine',
-    packages = ['code_engine'],
+    packages = [name],
     install_requires = requires,
     license = 'Apache',
     classifiers = [

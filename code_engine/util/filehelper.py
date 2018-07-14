@@ -1,5 +1,5 @@
 import os
-from util.debug import debug
+from ..util.debug import debug
 
 def collect_files(path, ext):
     return debug([filepath for filepath in debug([y for x in debug([list(map(lambda file: "%s/%s" % (root, file), files))\

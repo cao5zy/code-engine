@@ -2,9 +2,9 @@
 from nose import with_setup
 from assertpy import assert_that, contents_of
 import os
-from code_engine_core import gen
-from util.env import put_folder, put_file, remove
-from util.debug import on
+from code_engine.code_engine_core import gen
+from code_engine.util.env import put_folder, put_file, remove
+from code_engine.util.debug import on
 
 
 root = "./.test"

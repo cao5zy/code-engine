@@ -1,9 +1,9 @@
 from nose import with_setup
 from assertpy import assert_that
 import os
-from code_engine_file import get_value
-from util.env import put_folder, put_file, remove
-from util.debug import on
+from code_engine.code_engine_file import get_value
+from code_engine.util.env import put_folder, put_file, remove
+from code_engine.util.debug import on
 
 
 root = "./.test"
@@ -34,7 +34,7 @@ def setup_test_push_values():
 
 @with_setup(setup_test_push_values, clear)
 def test_push_values():
-    from code_engine_file import push_values
+    from code_engine.code_engine_file import push_values
     import demjson
     
     data = {

@@ -1,8 +1,8 @@
 from nose import with_setup
-from util.env import put_folder, remove, put_file, compose_dir
+from code_engine.util.env import put_folder, remove, put_file, compose_dir
 from assertpy import assert_that, contents_of
 import os
-import app
+from code_engine import app
 
 root = "./test"
 outputpath = "./test/folder1/code.py"

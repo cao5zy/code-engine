@@ -1,9 +1,9 @@
 from nose import with_setup
 from assertpy import assert_that
 import os
-from util.filehelper import collect_files
-from util.env import put_folder, put_file
-from util.debug import on
+from code_engine.util.filehelper import collect_files
+from code_engine.util.env import put_folder, put_file
+from code_engine.util.debug import on
 
 
 root = "./.test"

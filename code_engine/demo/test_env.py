@@ -1,5 +1,5 @@
 from nose import with_setup
-from util.env import put_folder, remove, put_file, compose_dir
+from code_engine.util.env import put_folder, remove, put_file, compose_dir
 from assertpy import assert_that
 import os
 

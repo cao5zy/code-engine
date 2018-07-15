@@ -4,6 +4,11 @@ Code-engine is a dead simple engine based on [Jinja2](http://jinja.pocoo.org/) t
 It looks like a pipe. You push your data into the end of the pipe. Finally, the files will be generated at the other end.  
 ![diagram](/resources/code-engine-diagram.png)  
 
+## Installation   
+```
+pip install code_engine
+```
+
 ## Template definition files  
 Template definition files include `definition` and `template`.  
 
@@ -60,7 +65,9 @@ After the defintion files and templates are ready, the code-engine can run.
 
 ### Run
 ```
-app.publish("/var/your_project", "methods_data", {"method_names": ["search_project_by_name", "search_project_by_tag"]})
+import code_engine
+
+code_engine.publish("/var/your_project", "methods_data", {"method_names": ["search_project_by_name", "search_project_by_tag"]})
 ```
 
 Then open the file at `/var/your_project_src/service.js`. The output would be like following.  

@@ -1,14 +1,15 @@
 from .util.filehelper import collect_files
-from .code_engine_file import push_values, get_value, get_template_path
+from .util.debug import debug
+from .code_engine_file import push_values, get_value, get_template_path, get_output_path
 from .code_engine_core import gen
 import os
 
-def publish(folderpath, subscribe_name, data, output_path = None):
-
+def publish(folderpath, subscribe_name, data, target_path = os.getcwd()):
+    debug(target_path, 'input target_path')
     def generate(definition_file_path):
         gen(get_template_path(os.path.split(definition_file_path)[0], get_value(definition_file_path, "template_path")), \
             get_value(definition_file_path, "variables"), \
-            get_value(definition_file_path, "output_path") \
+            debug(get_output_path(target_path, get_value(definition_file_path, "output_path")), 'output target path') \
             )
         
     def handle(definition_files):

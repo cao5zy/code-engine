@@ -20,3 +20,7 @@ def push_values(filepath, data):
 
 def get_template_path(definition_file_folder, template_path):
     return template_path if os.path.isabs(template_path) else os.path.join(definition_file_folder, template_path)
+
+def get_output_path(target_path, output_path):
+    return output_path if os.path.isabs(output_path) \
+             else os.path.join(target_path, output_path)

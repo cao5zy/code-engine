@@ -21,7 +21,11 @@ Template definition files include `definition` and `template`.
     }
 ```
 In this section, it tells the code-engine where get the template and where to output the file.  
-The `subscribe_name` is used to subscribe the data when the data is pushed into the pipe.  
+- `subscribe_name` is used to subscribe the data when the data is pushed into the pipe.  
+- `template_path` could be absolute path or relative path to the definition file.   
+- `output_path` could be absolute path or relative path to the definition file.   
+
+
 
 ### template
 ```

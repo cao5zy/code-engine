@@ -24,7 +24,7 @@ In this section, it tells the code-engine where get the template and where to ou
 - `subscribe_name` is used to subscribe the data when the data is pushed into the pipe.  
 - `template_path` could be absolute path or relative path to the definition file.   
 - `output_path` could be absolute path or relative path to the definition file.   
-The `output_path` could start with `$target` like `$target/code/service.js`. In this case, the `$target` will be replace with either the specified value or the current path.     
+
 
 
 ### template

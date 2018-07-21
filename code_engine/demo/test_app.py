@@ -11,7 +11,7 @@ def setup_test_app():
     put_file("code1.ce", put_folder(root), '''
 {
     "subscribe_name": "test",
-    "template_path": "./test/my.template",
+    "template_path": "./my.template",
     "output_path": "./test/folder1/code.py"
 } ''')
 

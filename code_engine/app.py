@@ -1,12 +1,12 @@
 from .util.filehelper import collect_files
-from .code_engine_file import get_value
-from .code_engine_file import push_values
+from .code_engine_file import push_values, get_value, get_template_path
 from .code_engine_core import gen
+import os
 
 def publish(folderpath, subscribe_name, data, output_path = None):
 
     def generate(definition_file_path):
-        gen(get_value(definition_file_path, "template_path"), \
+        gen(get_template_path(os.path.split(definition_file_path)[0], get_value(definition_file_path, "template_path")), \
             get_value(definition_file_path, "variables"), \
             get_value(definition_file_path, "output_path") \
             )

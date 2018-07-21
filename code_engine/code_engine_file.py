@@ -17,3 +17,6 @@ def push_values(filepath, data):
         return outputpath
 
     return push(filepath + ".staging")
+
+def get_template_path(definition_file_folder, template_path):
+    return template_path if os.path.isabs(template_path) else os.path.join(definition_file_folder, template_path)

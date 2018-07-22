@@ -2,8 +2,7 @@ from nose import with_setup
 from assertpy import assert_that
 import os
 from code_engine.util.filehelper import collect_files
-from code_engine.util.env import put_folder, put_file
-from code_engine.util.debug import on
+from codegenhelper import put_folder, put_file
 
 
 root = "./.test"

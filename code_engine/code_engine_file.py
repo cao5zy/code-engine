@@ -1,5 +1,5 @@
 import os
-from .util.debug import debug
+from codegenhelper import debug
 import demjson
 
 def get_value(filepath, key):

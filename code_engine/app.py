@@ -1,5 +1,5 @@
 from .util.filehelper import collect_files
-from .util.debug import debug
+from codegenhelper import debug
 from .code_engine_file import push_values, get_value, get_template_path, get_output_path
 from .code_engine_core import gen
 import os

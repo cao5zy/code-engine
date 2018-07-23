@@ -1,5 +1,5 @@
 from .util.filehelper import collect_files
-from codegenhelper import debug
+from codegenhelper import debug, create_folder_if_not_exists
 from .code_engine_file import push_values, get_value, get_template_path, get_output_path
 from .code_engine_core import gen
 import os
@@ -9,7 +9,7 @@ def publish(folderpath, subscribe_name, data, target_path = os.getcwd()):
     def generate(definition_file_path):
         gen(get_template_path(os.path.split(definition_file_path)[0], get_value(definition_file_path, "template_path")), \
             get_value(definition_file_path, "variables"), \
-            debug(get_output_path(target_path, get_value(definition_file_path, "output_path")), 'output target path') \
+            debug(create_folder_if_not_exists(get_output_path(target_path, get_value(definition_file_path, "output_path"))), 'output target path') \
             )
         
     def handle(definition_files):

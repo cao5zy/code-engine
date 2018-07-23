@@ -1,5 +1,5 @@
 import os
-from codegenhelper import debug
+from codegenhelper import debug, remove_file_if_exists
 import demjson
 
 def get_value(filepath, key):
@@ -12,7 +12,7 @@ def push_values(filepath, data):
         return original
 
     def push(outputpath):
-        demjson.encode_to_file(outputpath, debug(updatedict(demjson.decode_file(filepath), {"variables": data})))
+        demjson.encode_to_file(remove_file_if_exists(outputpath), debug(updatedict(demjson.decode_file(filepath), {"variables": data})))
 
         return outputpath
 

@@ -2,11 +2,11 @@
 from setuptools import setup, find_packages
 name = "code_engine"
 
-requires = ['demjson==2.2.4', 'Jinja2==2.10'],
+requires = ['demjson==2.2.4', 'Jinja2==2.10', 'codegenhelper>=0.0.9', 'request>=2.19.1'],
 
 setup(
     name = name,
-    version = '1.0.10',
+    version = '1.0.11',
     author = 'Zongying Cao',
     author_email = 'zongying.cao@dxc.com',
     description = 'Code-engine is a dead simple engine based on Jinja2 to make you free from generation process.',

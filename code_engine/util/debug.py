@@ -19,13 +19,16 @@ def log(moduleName):
                 
                 self.logger = get_configured_logger() if has_config_file() else get_std_logger()                
             def debug(self, val):
-                return self.logger.debug(val)
+                self.logger.debug(val)
+                return val
 
             def info(self, val):
-                return self.logger.info(val)
+                self.logger.info(val)
+                return val
 
             def error(self, val):
-                return self.logger.error(val)
+                self.logger.error(val)
+                return val
 
         return GetLogger()
 

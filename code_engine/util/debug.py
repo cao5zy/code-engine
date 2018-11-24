@@ -21,6 +21,12 @@ def log(moduleName):
             def debug(self, val):
                 return self.logger.debug(val)
 
+            def info(self, val):
+                return self.logger.info(val)
+
+            def error(self, val):
+                return self.logger.error(val)
+
         return GetLogger()
 
     return title

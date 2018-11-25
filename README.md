@@ -67,11 +67,17 @@ service.prototype = {
 
 After the defintion files and templates are ready, the code-engine can run.  
 
+### API
+```
+code_engine.publish(template_path, json_data, output_path)
+
+```
 ### Run
 ```
 import code_engine
 
 code_engine.publish("/var/your_project", "methods_data", {"method_names": ["search_project_by_name", "search_project_by_tag"]})
+
 ```
 
 Then open the file at `/var/your_project_src/service.js`. The output would be like following.  

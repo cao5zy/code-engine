@@ -1,8 +1,6 @@
 from .util.filehelper import collect_files
 from .util.debug import log
 from codegenhelper import debug
-from .code_engine_file import push_values, get_value, get_template_path, get_output_path
-from .code_engine_core import gen
 import os
 from codegenhelper import create_folder_if_not_exists
 from jinja2 import Template
@@ -25,7 +23,7 @@ def publish(template_root_path, data, target_root_path = os.getcwd()):
         gen(get_relative_path(template_root_path, template_file_path))
         
     def handle(template_files):
-        list([generate(push_values(file, data)) for file in template_files if get_value(file, "subscribe_name") == subscribe_name])
+        list([generate(file) for file in template_files])
 
     handle(collect_files(template_root_path, "t"))
 

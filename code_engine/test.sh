@@ -1,3 +1,2 @@
-export _DEBUG="debug"
-nosetests demo -s
-nosetests tests -s
+nosetests demo -s --nologcapture
+nosetests tests -s --nologcapture

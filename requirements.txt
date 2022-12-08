@@ -1,6 +1,6 @@
 assertpy==0.14
 bleach==3.0.2
-certifi==2018.10.15
+certifi==2022.12.7
 chardet==3.0.4
 codegenhelper==0.0.13
 demjson==2.2.4
